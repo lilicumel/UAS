@@ -1,0 +1,97 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affine Cipher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333333;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            color: #333333;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Affine Cipher</h1>
+
+    <form action="/encrypt" method="post">
+        <label for="text">Text:</label>
+        <input type="text" id="text" name="text" required>
+
+        <label for="key_a">Key A:</label>
+        <input type="number" id="key_a" name="key_a" required>
+
+        <label for="key_b">Key B:</label>
+        <input type="number" id="key_b" name="key_b" required>
+
+        <button type="submit">Encrypt</button>
+    </form>
+
+    <form action="/decrypt" method="post">
+        <label for="text">Text:</label>
+        <input type="text" id="text" name="text" required>
+
+        <label for="key_a">Key A:</label>
+        <input type="number" id="key_a" name="key_a" required>
+
+        <label for="key_b">Key B:</label>
+        <input type="number" id="key_b" name="key_b" required>
+
+        <button type="submit">Decrypt</button>
+    </form>
+
+    {% if result %}
+        <h2>Result of {{ operation }}ion:</h2>
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
